@@ -43,11 +43,11 @@ class AlarmActivity : AppCompatActivity() {
         if (intent.hasExtra("device_name"))
             tv_SensorName.text = intent.getStringExtra("device_name")
         var dObject = Calendar.getInstance().time
-        tv_timeStamp.text = java.text.SimpleDateFormat("dd-MM-yyyy").format(dObject)
+        tv_timeStamp.text = java.text.SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(dObject)
 
         btn_turnOfAlarm.setOnClickListener {
             mMediaPlayer?.stop()
-            finishAffinity()
+            finish()
         }
     }
 

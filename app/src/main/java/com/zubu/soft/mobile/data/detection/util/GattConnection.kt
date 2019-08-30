@@ -127,7 +127,7 @@ class GattConnection(
     private fun readData(characteristic: BluetoothGattCharacteristic?) {
         val data = characteristic?.value
         data?.let {
-            var fNumber = ByteBuffer.wrap(it).int
+            var fNumber = it[0].toInt()
             model.sensorData = fNumber.toString()
             listener.modelChanged(model)
             Log.d(TAG, "Characteristic Changed value $fNumber")
